@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		.box{
+			width: 100px;
+			height: 100px;
+			background: red;
+			border-radius: 50px;
+			position: absolute;
+			left: 123px;
+			top: 321px;
+			transition: 0.5s;
+			background-image: url(s.gif);
+			background-size: 100% 100%;
+		}
+		.box2{
+			width: 100px;
+			height: 100px;
+			background: red;
+			border-radius: 50px;
+			position: absolute;
+			left: 911px;
+			top: 423px;
+			transition: 0.5s;
+			background-image: url(s.gif);
+			background-size: 100% 100%;
+		}
+		.box3{
+			width: 100px;
+			height: 100px;
+			background: red;
+			border-radius: 50px;
+			position: absolute;
+			left:1421px;
+			top: 52px;
+			transition: 1s;
+			background-image: url(s.gif);
+			background-size: 100% 100%;
+		}
+		.box4{
+			width: 100px;
+			height: 100px;
+			background: blue;
+			border-radius: 50px;
+			position: absolute;
+			left:672px;
+			top: 1223px;
+			transition: 1s;
+			background-image: url(s.gif);
+			background-size: 100% 100%;
+		}
+		.box5{
+			width: 100px;
+			height: 100px;
+			background: cyan;
+			border-radius: 50px;
+			position: absolute;
+			left:543px;
+			top: 152px;
+			transition: 1s;
+			background-image: url(s.gif);
+			background-size: 100% 100%;
+		}
+		.box6{
+			width: 100px;
+			height: 100px;
+			background: darkcyan;
+			border-radius: 50px;
+			position: absolute;
+			left:11px;
+			top: 552px;
+			transition: 1s;
+			background-image: url(s.gif);
+			background-size: 100% 100%;
+		}
+		.win{
+			width: 1650px;
+			height: 1200px;
+			left: 700px;
+			top: 160px;
+			background-image: url(win.jpg);
+			background-size: 100% 100%;
+			display: none;
+		}
+		.loser{
+			width: 1650px;
+			height: 1200px;
+			left: 700px;
+			top: 160px;
+			background-image: url(l.jpg);
+			background-size: 100% 100%;
+			display: none;
+		}
+		.fon{
+			width: 1650px;
+			height: 1200px;
+			background-image: url(_.jpg);
+			background-size: 100% 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="fon">
+		<h1 class="b">Таймер <span class="timer">o</span></h1>
+		<h1 class="Ochko">0</h1>
+		<div class="box"></div>
+		<div class="box2"></div>
+		<div class="box3"></div>
+		<div class="box4"></div>
+		<div class="box5"></div>
+		<div class="box6"></div>
+
+		<div class="win"></div>
+		<div class="loser"></div>
+
+
+		<script type="text/javascript">
+			let thinking = function(arg) {
+				console.log(arg)
+			}
+
+			let box = document.querySelector(".box")
+			let box2 = document.querySelector(".box2")
+			let box3 = document.querySelector(".box3")
+			let box4 = document.querySelector(".box4")
+			let box5 = document.querySelector(".box5")
+			let box6 = document.querySelector(".box6")
+
+			let num = 2;
+			let num1 = 923;
+			let num2 = 45;
+			let num4 = 631;
+			let num5 = 867;
+			let num6 = 231;
+			let numbox3 = 1421;
+			let ochko = 0;
+			let cifra = document.querySelector(".Ochko")
+
+
+			let timetxt = document.querySelector(".timer")
+			let numtime = 10
+			timetxt.innerHTML = numtime
+
+			let timing = function() {
+				numtime = numtime - 1
+				timetxt.innerHTML = numtime
+			}
+
+			let myint = setInterval(timing,1000)
+
+			let stoptimer = function() {
+				clearInterval(myint)
+				alert("Время вышло")
+				if(ochko==6) {
+					document.querySelector(".win").style.display = "block"
+					document.querySelector(".timer").style.display = "none"
+					document.querySelector(".Ochko").style.display = "none"
+					document.querySelector(".b").style.display = "none"
+				} else{
+					document.querySelector(".loser").style.display = "block"
+					document.querySelector(".timer").style.display = "none"
+					document.querySelector(".Ochko").style.display = "none"
+					document.querySelector(".b").style.display = "none"
+					document.querySelector(".box").style.display = "none"
+					document.querySelector(".box2").style.display = "none"
+					document.querySelector(".box3").style.display = "none"
+					document.querySelector(".box4").style.display = "none"
+					document.querySelector(".box5").style.display = "none"
+					document.querySelector(".box6").style.display = "none"
+				}
+			}
+			setTimeout(stoptimer,10000)
+
+
+
+			let moveLeft = function() {
+				num = num + 67;
+				box.style.left = num + "px"
+			}
+			setInterval(moveLeft, 500);
+			let moveRight = function() {
+				numbox3 = numbox3 - 70;
+				box3.style.left = numbox3 + "px"
+			}
+			setInterval(moveRight,500)
+			let moveTop = function() {
+				num1 = num1 - 50;
+				box2.style.top = num1 + "px"
+			}
+			setInterval(moveTop, 500);
+			let moveBotton = function() {
+				num1 = num1 + 50;
+				box2.style.top = num1 + "px"
+			}
+			setInterval(moveLeft, 500);
+			let moveLeft1 = function() {
+				num2 = num2 + 67;
+				box3.style.left = num2 + "px"
+			}
+			setInterval(moveRight,450)
+			let moveTop1 = function() {
+				num4 = num4 - 50;
+				box4.style.top = num4 + "px"
+			}
+			setInterval(moveTop1, 450);
+			let moveBotton1 = function() {
+				num4 = num4 + 50;
+				box4.style.top = num4 + "px"
+			}
+			
+			let moveLeft2 = function() {
+				num5 = num5 + 67;
+				box5.style.left = num5 + "px"
+			}
+			setInterval(moveLeft2, 450);
+
+
+			let moveBotton2 = function() {
+				num6 = num6 + 50;
+				box6.style.top = num6 + "px"
+			}
+			setInterval(moveBotton2,350);
+
+			box.onclick = function() {
+				box.style.display = "none"
+				ochko = ochko + 1;
+				cifra.innerHTML = ochko
+				if (ochko==6) {
+					alert("win")
+				}
+			}
+
+			box2.onclick = function() {
+				box2.style.display = "none"
+				ochko = ochko + 1;
+				cifra.innerHTML = ochko
+				if (ochko==6) {
+					alert("win")
+				}
+			}
+
+			box3.onclick = function() {
+				box3.style.display = "none"
+				ochko = ochko + 1;
+				cifra.innerHTML = ochko
+				if (ochko==6) {
+					alert("win")
+				}
+			}
+
+			box4.onclick = function() {
+				box4.style.display = "none"
+				ochko = ochko + 1;
+				cifra.innerHTML = ochko
+				if (ochko==6) {
+					alert("win")
+				}
+			}
+
+			box5.onclick = function() {
+				box5.style.display = "none"
+				ochko = ochko + 1;
+				cifra.innerHTML = ochko
+				if (ochko==6) {
+					alert("win")
+				}
+			}
+
+			box6.onclick = function() {
+				box6.style.display = "none"
+				ochko = ochko + 1;
+				cifra.innerHTML = ochko
+				if (ochko==6) {
+					alert("win")
+				}
+			}
+
+
+
+
+		</script>
+	</div>
+</body>
+</html>
